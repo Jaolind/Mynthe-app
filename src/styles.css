@@ -1,0 +1,150 @@
+/* Rolige farver, høj kontrast, store mål. 1 cm ≈ 38 CSS-px; 2 cm ≈ 76 px. */
+:root {
+  --bg: #fff8ec;
+  --ink: #2b2a33;
+  --muted: #6b6878;
+  --sun: #ffb547;
+  --sea: #6cb8e6;
+  --leaf: #8fcf7a;
+  --card: #ffffff;
+  --min-touch: 80px; /* > 2 cm */
+  font-family: 'Andika', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { margin: 0; height: 100%; }
+
+body {
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+button { font: inherit; color: inherit; cursor: pointer; }
+
+.screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+  position: relative;
+}
+
+.big-text { font-size: 2rem; font-weight: 700; text-align: center; margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* Startskærm */
+.sun {
+  font-size: 9rem;
+  line-height: 1;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient(circle, #ffe3a6 0%, var(--bg) 70%);
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe { 50% { transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .sun { animation: none; } }
+
+/* Store knapper */
+.big-btn {
+  border: none;
+  border-radius: 28px;
+  min-width: var(--min-touch);
+  min-height: var(--min-touch);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 80ms;
+}
+.big-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12); }
+.big-btn--sun { background: var(--sun); }
+.big-btn--sea { background: var(--sea); }
+.big-btn--leaf { background: var(--leaf); }
+.big-btn--plain { background: var(--card); }
+.big-btn--xl { width: min(70vw, 260px); height: min(32vh, 220px); }
+.big-btn--lg { width: 180px; height: 140px; }
+.big-btn--md { width: 120px; height: 100px; font-size: 2.5rem; }
+
+.tracks { display: flex; flex-direction: column; gap: 32px; }
+.track-icon { font-size: 6rem; line-height: 1; }
+.track-icon.huge { font-size: 8rem; }
+
+.icon-btn {
+  position: absolute;
+  width: var(--min-touch);
+  height: var(--min-touch);
+  border-radius: 50%;
+  border: none;
+  background: var(--card);
+  font-size: 2.4rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+.home-btn { top: max(16px, env(safe-area-inset-top)); left: 16px; }
+
+/* Lille og diskret, så barnet ikke tiltrækkes af den. */
+.parent-corner {
+  position: absolute;
+  right: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  opacity: 0.5;
+  font-size: 1.6rem;
+}
+
+.sleep { background: #2d3150; color: #f4f1ff; }
+.moon { font-size: 8rem; }
+.sleep .parent-corner { color: #a9a6c9; }
+
+/* Forældrelås */
+.gate-q { font-size: 2.6rem; margin: 0; }
+.gate-hint { color: var(--muted); margin: 0; }
+.gate-choices { display: grid; grid-template-columns: repeat(2, 120px); gap: 16px; }
+.gate-choice {
+  height: var(--min-touch);
+  border-radius: 16px;
+  border: 2px solid #ddd6c8;
+  background: var(--card);
+  font-size: 1.8rem;
+}
+
+/* Forældreområde: almindelig voksen-UI */
+.parent { justify-content: flex-start; padding-top: 110px; user-select: text; -webkit-user-select: text; }
+.parent h1 { margin: 0; }
+.card {
+  width: min(100%, 560px);
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.card h2 { margin-top: 0; font-size: 1.2rem; }
+.small-btn {
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd6c8;
+  background: #fffdf8;
+}
+.link-btn { border: none; background: none; text-decoration: underline; padding: 0; }
+.diag { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 16px 0 0; }
+.diag dt { color: var(--muted); }
+.diag dd { margin: 0; }
+.error { color: #b3261e; }
+.log { font-size: 0.85rem; color: var(--muted); padding-left: 18px; }
+select, input { font: inherit; min-height: 44px; padding: 0 8px; border-radius: 8px; border: 1px solid #ddd6c8; }
