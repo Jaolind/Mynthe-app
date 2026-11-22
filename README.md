@@ -4,7 +4,8 @@ Et roligt, dansk og offline læringsspil til Mynthe (5–7 år), med to spor: **
 Der er ingen reklamer, intet login og ingen streaks, og der sendes ingen data nogen steder hen.
 
 - 📄 Research: [`docs/research-rapport.md`](docs/research-rapport.md) (noter i [`research/`](research/))
-- 🗺️ Plan: [`docs/BYGGEPLAN.md`](docs/BYGGEPLAN.md)
+- 🧭 Roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md)
+- 🗺️ Teknisk plan: [`docs/BYGGEPLAN.md`](docs/BYGGEPLAN.md)
 
 ## Status: fase 0 (fundament)
 
@@ -14,7 +15,7 @@ Der er ingen reklamer, intet login og ingen streaks, og der sendes ingen data no
 | Andika-font, selvhostet | ✅ |
 | Lydmotor (Howler) med tryk-for-at-starte og plan B (HTML5-lyd) | ✅ |
 | IndexedDB-lagring + `storage.persist()` + JSON-eksport/-import | ✅ |
-| Forældrelås + forældreområde med **lydtest** | ✅ |
+| Forældrelås (talord) + forældreområde med **lydtest** | ✅ |
 | Sengetidslås (standard kl. 19–06) | ✅ |
 | Adaptiv motor (Leitner-bokse, sessionsplan, svarmuligheder 2→4) med tests | ✅ |
 | TTS-script til danske lydfiler (Azure) | ✅ (kræver nøgle) |
@@ -40,7 +41,7 @@ Bogstav-**lydene** (/m/, /s/ …) indtaler du selv. Computerstemmer siger "æm" 
 
 1. Udgiv med GitHub Pages (se nedenfor), og åbn adressen i Safari på telefonen.
 2. **Del → Føj til hjemmeskærm**, og åbn appen fra ikonet.
-3. Tryk på solen, gå til ⚙︎ nederst til højre, løs gangestykket og åbn **Lydtest**.
+3. Tryk på solen, gå til ⚙︎ nederst til højre, tryk talordene i rækkefølge og åbn **Lydtest**.
 4. Afspil lydene **online, i flytilstand og med lydløs-knappen både til og fra**.
 5. Fejler lyden, skift **Lydmotor → HTML5-lyd** og prøv igen.
 6. Slå **Guided Access** til (Indstillinger → Tilgængelighed → Guidet adgang).

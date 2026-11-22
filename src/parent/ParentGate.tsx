@@ -1,55 +1,49 @@
 import { useMemo, useState } from 'react';
 import { HomeButton } from '../ui/HomeButton';
+import { makeGateChallenge } from './gate';
 
 /**
- * Forældrelås: et gangestykke, som en 5-7-årig ikke kan løse, med fire svarmuligheder.
- * (I fase 1 tilføjes en indtalt "Hent en voksen".)
+ * Forældrelås: "Tryk på fire, otte, to".
+ * Let for en voksen, der kan læse. Svært for et barn, der endnu ikke læser,
+ * fordi tallene står som ord, og der er ingen oplæsning.
+ * Når Mynthe begynder at læse talord, kan låsen skiftes til en PIN-kode (se ROADMAP).
  */
 export function ParentGate({ onPass, onCancel }: { onPass: () => void; onCancel: () => void }) {
-  const [attempt, setAttempt] = useState(0);
-  const q = useMemo(() => makeQuestion(), [attempt]);
+  const [round, setRound] = useState(0);
+  const challenge = useMemo(() => makeGateChallenge(), [round]);
+  const [entered, setEntered] = useState<number[]>([]);
   const [wrong, setWrong] = useState(false);
+
+  const press = (n: number) => {
+    const next = [...entered, n];
+    if (challenge.digits[next.length - 1] !== n) {
+      setWrong(true);
+      setEntered([]);
+      setRound((r) => r + 1);
+      return;
+    }
+    if (next.length === challenge.digits.length) onPass();
+    else setEntered(next);
+  };
 
   return (
     <div className="screen parent-gate">
       <HomeButton onHome={onCancel} />
-      <p className="gate-hint">For voksne</p>
-      <h1 className="gate-q">
-        {q.a} × {q.b} = ?
-      </h1>
-      <div className="gate-choices">
-        {q.choices.map((c) => (
-          <button
-            key={c}
-            type="button"
-            className="gate-choice"
-            onClick={() => {
-              if (c === q.a * q.b) onPass();
-              else {
-                setWrong(true);
-                setAttempt((n) => n + 1);
-              }
-            }}
-          >
-            {c}
+      <p className="gate-hint">For voksne: tryk på tallene i rækkefølge</p>
+      <h1 className="gate-q">{challenge.words.join(', ')}</h1>
+      <div className="gate-dots" aria-hidden>
+        {challenge.digits.map((_, i) => (
+          <span key={i} className={i < entered.length ? 'dot dot--on' : 'dot'} />
+        ))}
+      </div>
+      <div className="gate-pad">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+          <button key={n} type="button" className="gate-choice" onClick={() => press(n)}>
+            {n}
           </button>
         ))}
       </div>
       {wrong && <p className="gate-hint">Prøv igen</p>}
     </div>
   );
-}
-
-function makeQuestion() {
-  const r = (min: number, max: number) => min + Math.floor(Math.random() * (max - min + 1));
-  const a = r(6, 9);
-  const b = r(6, 9);
-  const answer = a * b;
-  const set = new Set<number>([answer]);
-  while (set.size < 4) {
-    const d = answer + r(-12, 12);
-    if (d > 20 && d !== answer) set.add(d);
-  }
-  const choices = [...set].sort(() => Math.random() - 0.5);
-  return { a, b, choices };
 }
