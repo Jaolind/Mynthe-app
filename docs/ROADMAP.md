@@ -1,6 +1,6 @@
 # Roadmap: Mynthe-appen
 
-Levende dokument. Den detaljerede tekniske plan står i [`BYGGEPLAN.md`](BYGGEPLAN.md), og baggrunden står i [`research-rapport.md`](research-rapport.md).
+Levende dokument. Appen bygges i **Kaptajn Knurhårs univers**, se [`KNURHAAR-KONCEPT.md`](KNURHAAR-KONCEPT.md). Den tekniske plan står i [`BYGGEPLAN.md`](BYGGEPLAN.md), og baggrunden står i [`research-rapport.md`](research-rapport.md).
 
 **Princip:** Hver leverance skal kunne spilles af Mynthe, før vi bygger den næste. Tre gode aktiviteter slår ti halve.
 
@@ -12,37 +12,31 @@ Levende dokument. Den detaljerede tekniske plan står i [`BYGGEPLAN.md`](BYGGEPL
 |---|---|---|---|
 | ✅ | **v0.1 Fundament** | PWA, lyd, lagring, forældreområde, sengetidslås, adaptiv motor | Færdig, lydtest bestået på iPhone |
 | ✅ | v0.1.1 | Ny forældrelås med talord ("tryk på fire, otte, to") | Færdig |
-| 🔜 | **v0.2 Lyde: første spil** | Optager til bogstavlyde + aktiviteten "Hvilket bogstav siger …?" | **Næste** |
-| | v0.3 Lyde komplet | "Hvad starter ordet med?" + "Byg ordet", ordbilleder, TTS-ord | |
-| | v0.4 Tal | "Hvor mange?", "Tæl og træk", "Tals venner til 10" | |
-| | v0.5 Forældreoverblik | Mestring pr. bogstav/tal, papirtest-log, "gør det sammen"-kort | |
-| | v0.6 Makker og klistermærker | En figur Mynthe selv vælger, klistermærkebog knyttet til mestring | |
-| | v1.0 Hele 0. klasse | Hele alfabetet (uden q/w/x/z), tal til 20 | |
-| | Senere | Vokalvariation, hyppige ord, tallinje til 100, plus/minus til 20 | |
+| 🔜 | **v0.2 Om bord på Hvorfor** | Dækket som hjemskærm, Knurhår og Pip (fra referencearkene), optager til stemmer og bogstavlyde | **Næste** |
+| | v0.3 Pips skrivetavle (Lyde) | "Hvilket tegn skal Pip ridse?" og "Hvad starter med …?" (forlyd), de første lyde | |
+| | v0.4 Skattekisten (Bogen) | Forælderen markerer læste historier. "Ret Pip" (huskesætning) og morgenspørgsmål pr. historie | |
+| | v0.5 Pips ostelager (Tal) | "Hvor mange ostebidder?", "Læg i ostekassen", "Ostekassen til 10" | |
+| | v0.6 Spørgekompasset | Kompasset vælger dagens leg, så sessionen bliver én rolig rejse | |
+| | v0.7 Forældreoverblik | Mestring, papirtest-log og kolonnen "Brugt i appen" til bogens måling | |
+| | v1.0 Hele 0. klasse | Hele alfabetet (uden q/w/x/z), tal til 20, alle 12 historier fra bog 1 | |
+| | Senere | Byg ord på lertavlen, bog 2 (historie 13-24), vokalvariation, plus/minus | |
 | | Måske | PIN-lås, Capacitor/App Store, flere børn | |
 
 ---
 
-## Nu: v0.2 "Lyde: første spil"
+## Nu: v0.2 "Om bord på Hvorfor"
 
-**Mål:** Mynthe kan spille én rigtig læringsaktivitet med din stemme.
-**Done når:** Hun gennemfører 3 sessioner uden hjælp til navigationen, og motoren flytter bogstaverne op i boksene.
-
-### Implementering (i rækkefølge)
+**Mål:** Mynthe genkender skibet, Knurhår og Pip i appen, og stemmerne er på plads.
+**Done når:** Hun åbner appen, møder Knurhår og Pip på dækket, og de siger hej med rigtige stemmer.
 
 | # | Opgave | Detaljer |
 |---|---|---|
-| 1 | **Indhold** `src/content/letters.ts` | De 10 første lyde i rækkefølgen m, s, a, l, i, r, o, f, u, n, med emoji/billede pr. bogstav |
-| 2 | **Optager** i forældreområdet | Liste over bogstaver → 🎙 optag → ▶ afspil → ✓ gem. Gemmes i IndexedDB (`recordings`). Bruger `MediaRecorder` (m4a/webm). Viser hvilke der mangler |
-| 3 | **Lyd fra optagelser** | `AudioEngine` kan afspille en Blob-URL. Fallback: syntetisk "bip" + bogstavet stort på skærmen, hvis en lyd mangler |
-| 4 | **Aktivitetsskabelon** `src/activities/Activity.tsx` | Fælles flow: instruktion → opgave → feedback → næste, 6 opgaver → slutskærm. Logger session |
-| 5 | **"Hvilket bogstav siger …?"** | Afspil /m/ → vis 2–4 store bogstaver → tryk. Rigtigt: bogstavet hopper og siger lyden igen. Forkert: "Lyt igen" og lyden afspilles, ingen straf |
-| 6 | **Kobl motoren på** | `planSession` vælger bogstaver, `applyAnswer` gemmer, `nextChoiceCount` styrer antal svarmuligheder |
-| 7 | **Slutskærm** | "Godt arbejde i dag!" → hjem. Intet "spil igen" |
-| 8 | **Indtalte instruktioner** | Optag selv eller brug TTS: "Hvilket bogstav siger …", "Godt arbejde", "Lyt igen" |
-| 9 | **Tests + udgivelse** | Unit-tests af aktivitetsflow, Playwright-smoke på iPhone-profil, deploy |
-
-**Det skal du levere:** 10 bogstavlyde (ca. 15 min, indtales direkte i appen, når optageren er klar) og evt. 3 instruktioner.
+| 1 | **Grafik** | Janus laver med samme værktøj som bogen: dækket i stående format, Knurhår og Pip i 4-5 positurer på gennemsigtig baggrund. Claude skriver prompterne |
+| 2 | **Hjemskærm = dækket** | Tre steder at trykke på: lertavlen (Lyde), ostekassen (Tal) og skattekisten (Bogen). Hængekøjen er sengetidslåsen |
+| 3 | **Optager** i forældreområdet | Optag replikker til Knurhår og Pip og bogstavlyde. Gemmes på telefonen |
+| 4 | **Figurer med stemme** | Tryk på Knurhår → hun hilser. Tryk på Pip → han kigger frem under hatten |
+| 5 | **Kanon som data** | `src/content/canon.ts`: figurer, skatte og huskesætninger fra Verdensbiblen. Historier markeres som læst i forældreområdet |
+| 6 | **Tests + udgivelse** | Smoke-test på iPhone-profil, deploy |
 
 ---
 
@@ -52,8 +46,9 @@ Levende dokument. Den detaljerede tekniske plan står i [`BYGGEPLAN.md`](BYGGEPL
 |---|---|
 | Forældrelås | Talord (fra v0.1.1). Skift til en PIN, når Mynthe kan læse talord |
 | Instruktionsstemme | **Åbent:** din stemme hele vejen (mere personligt, ingen Azure) eller TTS (hurtigere at udvide)? |
-| Billeder | Emoji i v0.2–0.3 (gratis, tydelige). Rigtige illustrationer fra v0.6 |
-| Makker-figur | Vælges sammen med Mynthe før v0.6 |
+| Billeder | Bogens akvarelstil og referenceark. Emoji kun som pladsholder |
+| Univers | Kaptajn Knurhår. Drive-mappen er kilden til sandhed |
+| Fjollekameraet | **Åbent:** Samme univers. Skal de to apps smelte sammen eller dele fremskridt? |
 | Måling | Papirtest hver 4. uge fra v0.2: sig lyden for 10 bogstaver |
 
 ## Bevidst IKKE på roadmappen
