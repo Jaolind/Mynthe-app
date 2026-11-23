@@ -12,10 +12,10 @@ Levende dokument. Appen bygges i **Kaptajn Knurhårs univers**, se [`KNURHAAR-KO
 |---|---|---|---|
 | ✅ | **v0.1 Fundament** | PWA, lyd, lagring, forældreområde, sengetidslås, adaptiv motor | Færdig, lydtest bestået på iPhone |
 | ✅ | v0.1.1 | Ny forældrelås med talord ("tryk på fire, otte, to") | Færdig |
-| 🔜 | **v0.2 Om bord på Hvorfor** | Dækket som hjemskærm, Knurhår og Pip (fra referencearkene), optager til stemmer og bogstavlyde | **Næste** |
-| | v0.3 Pips skrivetavle (Lyde) | "Hvilket tegn skal Pip ridse?" og "Hvad starter med …?" (forlyd), de første lyde | |
-| | v0.4 Skattekisten (Bogen) | Forælderen markerer læste historier. "Ret Pip" (huskesætning) og morgenspørgsmål pr. historie | |
-| | v0.5 Pips ostelager (Tal) | "Hvor mange ostebidder?", "Læg i ostekassen", "Ostekassen til 10" | |
+| ✅ | **v0.2 Om bord på Hvorfor** | Dækket som hjemskærm, Knurhår og Pip (fra referencearkene), optager til stemmer og bogstavlyde | Klar med pladsholdere. Mangler billeder og stemmer |
+| ✅ | v0.3 Pips skrivetavle (Lyde) | "Hvilket tegn skal Pip ridse?" og "Hvad starter med …?" (forlyd), de første lyde | Klar, skal testes med Mynthe |
+| ✅ | v0.4 Skattekisten (Bogen) | Forælderen markerer læste historier. "Ret Pip" (huskesætning) og morgenspørgsmål pr. historie | Klar, skal testes med Mynthe |
+| ✅ | v0.5 Pips ostelager (Tal) | "Hvor mange ostebidder?" og "Læg i ostekassen" (10-ramme). "Hvor mange mangler?" kommer senere | Klar, skal testes med Mynthe |
 | | v0.6 Spørgekompasset | Kompasset vælger dagens leg, så sessionen bliver én rolig rejse | |
 | | v0.7 Forældreoverblik | Mestring, papirtest-log og kolonnen "Brugt i appen" til bogens måling | |
 | | v1.0 Hele 0. klasse | Hele alfabetet (uden q/w/x/z), tal til 20, alle 12 historier fra bog 1 | |
@@ -24,19 +24,18 @@ Levende dokument. Appen bygges i **Kaptajn Knurhårs univers**, se [`KNURHAAR-KO
 
 ---
 
-## Nu: v0.2 "Om bord på Hvorfor"
+## Nu: test med Mynthe
 
-**Mål:** Mynthe genkender skibet, Knurhår og Pip i appen, og stemmerne er på plads.
-**Done når:** Hun åbner appen, møder Knurhår og Pip på dækket, og de siger hej med rigtige stemmer.
+**Klar i appen (med pladsholdere):** dækket, optageren, Pips skrivetavle, Pips ostelager og skattekisten.
 
-| # | Opgave | Detaljer |
+| # | Hvem | Opgave |
 |---|---|---|
-| 1 | **Grafik** | ✍️ Prompts klar i [`BILLEDPROMPTS.md`](BILLEDPROMPTS.md). Janus laver billederne i ChatGPT og gemmer dem i Drive `Billeder/App` |
-| 2 | ✅ **Hjemskærm = dækket** (med pladsholdere) | Tre steder at trykke på: lertavlen (Lyde), ostekassen (Tal) og skattekisten (Bogen). Hængekøjen er sengetidslåsen |
-| 3 | **Optager** i forældreområdet | Optag replikker til Knurhår og Pip og bogstavlyde. Gemmes på telefonen |
-| 4 | 🟡 **Figurer med stemme** (animation klar, stemmer mangler) | Tryk på Knurhår → hun hilser. Tryk på Pip → han kigger frem under hatten |
-| 5 | **Kanon som data** | `src/content/canon.ts`: figurer, skatte og huskesætninger fra Verdensbiblen. Historier markeres som læst i forældreområdet |
-| 6 | **Tests + udgivelse** | Smoke-test på iPhone-profil, deploy |
+| 1 | Janus | Indtal stemmer i forældreområdet → Stemmer. Vigtigst: Knurhårs og Pips replikker og de 10 bogstavlyde. Resten læses af computerstemmen indtil videre |
+| 2 | Janus | Markér læste historier i forældreområdet (historie 1 og 2) |
+| 3 | Janus | Spil 3 gange med Mynthe. Notér, hvor hun går i stå |
+| 4 | Janus | Billeder i ChatGPT, når der er tid (Drive: "05 App-billeder") |
+| 5 | Claude | Henter billederne ind og retter ud fra Mynthes test |
+| 6 | Claude | Næste: v0.6 Spørgekompasset (dagens leg) og "Hvor mange mangler?" |
 
 ---
 

@@ -1,0 +1,275 @@
+[
+  {
+    "nr": 1,
+    "title": "Hvorfor falder månen ikke ned?",
+    "friend": "Isaac Newton",
+    "huskesaetning": "Månen falder og falder – hele vejen rundt om Jorden.",
+    "pipForkert": null,
+    "skat": {
+      "ting": "det sidste æble",
+      "til": "Til at huske med"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor faldt æblet ned fra træet?",
+        "svar": "Jorden trækker i alting. Det hedder tyngdekraft."
+      },
+      {
+        "spoergsmaal": "Hvorfor falder månen så ikke ned på os?",
+        "svar": "Den farer så hurtigt sidelæns, at den falder hele vejen rundt om Jorden."
+      }
+    ],
+    "leg": "Kast en bold sammen, først blødt og så hårdt. Hvor langt flyver den? Spørg så: \"Hvad ville der ske, hvis vi kunne kaste helt utroligt hårdt?\"",
+    "kernebegreb": "Jorden trækker i alting. Det hedder tyngdekraft."
+  },
+  {
+    "nr": 2,
+    "title": "Hvem bestemmer i Danmark?",
+    "friend": "Sophie",
+    "huskesaetning": "Ingen skal bestemme alt alene.",
+    "pipForkert": "Ingen skal bestemme ost alene!",
+    "skat": {
+      "ting": "et bitte lille stykke af papirkronen",
+      "til": null
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvem bestemte alt i Danmark for længe siden?",
+        "svar": "Kongen. Helt alene."
+      },
+      {
+        "spoergsmaal": "Hvad gjorde de, så kongen ikke bestemte alt alene?",
+        "svar": "De lavede Grundloven og delte magten, så mange er med til at bestemme."
+      }
+    ],
+    "leg": "Lav en papirkrone. Den, der har kronen på, bestemmer alt i fem minutter. Riv så kronen i stykker, giv alle et stykke, og stem om, hvad I skal lave bagefter. Spørg: \"Hvad var sjovest?\"",
+    "kernebegreb": "Før bestemte kongen alt alene. Så fik Danmark en grundlov, og nu deler vi magten."
+  },
+  {
+    "nr": 3,
+    "title": "Hvorfor kan man købe is for en mønt?",
+    "friend": "Mira",
+    "huskesaetning": "Penge virker, fordi alle stoler på dem.",
+    "pipForkert": "Penge virker, fordi alle spiser dem!",
+    "skat": null,
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor var det så svært for Mira at bytte sine figner for en krukke?",
+        "svar": "Pottemageren ville ikke have figner, så hun måtte bytte mange gange."
+      },
+      {
+        "spoergsmaal": "Hvorfor vil ismanden gerne have en lille mønt for en hel is?",
+        "svar": "Fordi alle stoler på mønten, så han kan købe noget andet for den."
+      }
+    ],
+    "leg": "Lav et lille marked derhjemme med legetøj og frugt. Først må I kun bytte. Bagefter får alle fem knapper, som I aftaler er penge. Hvad er nemmest? Og hvad sker der, hvis én pludselig ikke vil tage knapperne?",
+    "kernebegreb": "En mønt er bare et stykke metal. Men alle har aftalt, at den er noget værd."
+  },
+  {
+    "nr": 4,
+    "title": "Hvordan husker man mere, end der kan være i hovedet?",
+    "friend": "Kushim",
+    "huskesaetning": "Når det er skrevet ned, bliver det ikke glemt.",
+    "pipForkert": "Når osten er gemt, bliver den ikke glemt!",
+    "skat": {
+      "ting": "en lille klump vådt ler og en sivpind",
+      "til": "Til at huske med"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor kunne ingen huske, hvor mange får den første bonde kom med?",
+        "svar": "Der kom så mange, at der ikke var plads til det hele i hovedet."
+      },
+      {
+        "spoergsmaal": "Hvordan kunne Kushim alligevel svare?",
+        "svar": "Han havde skrevet det ned på en lertavle."
+      }
+    ],
+    "leg": "Lav jeres egne lertavler af modellervoks eller dej. Tryk tegn i dem med en blyant: et tegn for æble, et for kop og små huller for, hvor mange. Kan den anden læse, hvad der står? Byt bagefter, og lav en huskeseddel med tegninger til jeres næste indkøbstur.",
+    "kernebegreb": "Men man kan skrive det ned. Så husker leret eller papiret for os."
+  },
+  {
+    "nr": 5,
+    "title": "Hvad står der på den store sten i Jelling?",
+    "friend": "Åse",
+    "huskesaetning": "Det, der står i sten, kan vi stadig læse.",
+    "pipForkert": "Det, der står i ost, kan vi stadig spise!",
+    "skat": {
+      "ting": "en lille, flad sten",
+      "til": "Til at skrive på"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvad stod der på den store sten?",
+        "svar": "At kong Harald lod stenen lave til minde om sin far og mor, og at han siger, at han samlede Danmark til ét rige."
+      },
+      {
+        "spoergsmaal": "Hvorfor skrev kongen det i sten og ikke på en lertavle?",
+        "svar": "Fordi en sten kan holde i tusind år, så vi stadig kan læse den."
+      }
+    ],
+    "leg": "Tegn runer med kridt på en sten eller en flise. Find runen for dit eget forbogstav; M-runen ligner for eksempel et lille træ med to grene: ᛘ. Hvem kan læse den om tusind år? Bor I tæt nok på, så tag til Jelling og se stenene.",
+    "kernebegreb": "Men en sten kan stå i tusind år."
+  },
+  {
+    "nr": 6,
+    "title": "Hvad er alting lavet af?",
+    "friend": "Demokrit",
+    "huskesaetning": "Alting er lavet af bittesmå klodser.",
+    "pipForkert": "Alting er lavet af bittesmå oste!",
+    "skat": {
+      "ting": "et sandkorn",
+      "til": "Til at tænke på"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvad sker der, hvis man deler en ostebid igen og igen?",
+        "svar": "Den bliver mindre og mindre, og til sidst kommer man til bittesmå klodser, der hedder atomer."
+      },
+      {
+        "spoergsmaal": "Hvorfor kan vi ikke se atomerne?",
+        "svar": "Fordi de er alt for små."
+      }
+    ],
+    "leg": "Byg et hus af LEGO eller andre klodser, og byg det så om til et skib eller et dyr med de samme klodser. Sådan bygger atomerne alting. Kig bagefter på sand, sukker eller salt gennem et forstørrelsesglas. Fortæl så, at selv det mindste korn er lavet af milliarder af milliarder atomer, og at de er alt for små til at se, også med et forstørrelsesglas.",
+    "kernebegreb": "De hedder atomer, og alting er bygget af dem, også os."
+  },
+  {
+    "nr": 7,
+    "title": "Hvordan finder man ud af, hvad der skete for over 3.000 år siden?",
+    "friend": "Hussein",
+    "huskesaetning": "Alt, hvad mennesker laver, efterlader spor.",
+    "pipForkert": "Alt, hvad mennesker laver, efterlader ost!",
+    "skat": {
+      "ting": "en lille, slidt pensel",
+      "til": "Til at lede efter spor med"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvad fandt Hussein i sandet?",
+        "svar": "Et trin af sten, der førte ned til kong Tutankhamons grav."
+      },
+      {
+        "spoergsmaal": "Hvordan kan man vide, hvordan folk levede for længe siden?",
+        "svar": "Man kigger på de spor, de har efterladt, fx deres ting."
+      }
+    ],
+    "leg": "Lav en udgravning i sandkassen eller i en balje med sand. Gem et par ting, fx en ske, et legetøjsdyr og en kop, og lad hende grave dem frem med en pensel og en ske. Hvad fortæller tingene om, hvem der har været her? Kig bagefter efter spor ved morgenbordet: Hvem har spist hvad?",
+    "kernebegreb": "Man leder efter de spor, folk har efterladt: deres ting, deres huse og deres grave. Sporene fortæller, hvordan de levede."
+  },
+  {
+    "nr": 8,
+    "title": "Hvorfor måtte Peder ikke flytte?",
+    "friend": "Peder",
+    "huskesaetning": "Nu er båndet klippet over.",
+    "pipForkert": "Nu er osten klippet over!",
+    "skat": {
+      "ting": "en lille fløjte af en pilegren",
+      "til": "Til at fløjte med, når man er glad"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor måtte Peder ikke flytte?",
+        "svar": "Fordi han var stavnsbundet: Bondedrengene skulle blive på det gods, hvor de var født, så herremanden havde folk til at arbejde og kunne sende nogle af dem til kongen som soldater."
+      },
+      {
+        "spoergsmaal": "Hvad stod der i kongens nye lov?",
+        "svar": "At båndet skulle klippes over, først for de små drenge og senere for alle."
+      }
+    ],
+    "leg": "Bind en lang snor løst om hendes ankel og den anden ende om et stoleben, og lad hende prøve at hente noget, der ligger lidt for langt væk. Klip så snoren over sammen (den voksne holder saksen), og sig: Nu er båndet klippet over. Hvordan føles det at være bundet, og hvordan føles det at være fri? Lav bagefter en fløjte af et græsstrå.",
+    "kernebegreb": "Så lavede kongen en ny lov, og båndet blev klippet over, lidt efter lidt."
+  },
+  {
+    "nr": 9,
+    "title": "Hvordan kom bananen til Danmark?",
+    "friend": "Valentina",
+    "huskesaetning": "Hele verden hjælper med din morgenmad.",
+    "pipForkert": "Hele verden hjælper med min ost!",
+    "skat": {
+      "ting": "en bitte lille, grøn banan",
+      "til": "Til at spise, når den er blevet gul"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor vokser der ikke bananer i Danmark?",
+        "svar": "Fordi det er for koldt. Bananer skal have varmt hele året, så her kan de kun gro i et varmt drivhus."
+      },
+      {
+        "spoergsmaal": "Hvem hjalp bananen på vej?",
+        "svar": "Mange mennesker i mange lande: dem, der plantede og pakkede den, sømændene, chaufførerne og dem i butikken."
+      }
+    ],
+    "leg": "Læg morgenmaden på bordet, og gæt sammen, hvor hver ting kommer fra. Kig efter landenes navne på klistermærket, på pakkerne eller på skiltet i butikken, og find landene på en globus eller et kort. Hvor mange lande hjalp med jeres morgenmad i dag?",
+    "kernebegreb": "Mange mennesker i mange lande har hjulpet den på vej."
+  },
+  {
+    "nr": 10,
+    "title": "Hvorfor har finkerne forskellige næb?",
+    "friend": "Charles Darwin",
+    "huskesaetning": "Det, der passer bedst, bliver der flest af.",
+    "pipForkert": "Den ost, der passer bedst, bliver der flest af!",
+    "skat": {
+      "ting": "et lille, hårdt frø",
+      "til": "Til at gnave i"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor havde finkerne forskellige næb?",
+        "svar": "Fordi hvert næb passer til sin mad: tykke næb til hårde frø og tynde næb til små insekter. De finker, hvis næb passede bedst til maden, fik flest unger."
+      },
+      {
+        "spoergsmaal": "Hvad sker der, når der kun er hårde frø tilbage?",
+        "svar": "Finkerne med de tykkeste næb får mad og flest unger, og ungerne får også tykke næb. Så efter mange år er der flest af dem."
+      }
+    ],
+    "leg": "Leg finker ved køkkenbordet. Brug en tang eller en nøddeknækker som tykt næb, en pincet som tyndt næb og en ske som bredt næb. Læg nødder, rosiner og små stykker pasta frem. Hvilket næb er bedst til hvilken mad? Hvad sker der, hvis der kun er nødder tilbage?",
+    "kernebegreb": "Hvert næb passer til sin mad."
+  },
+  {
+    "nr": 11,
+    "title": "Hvorfor stod der en mur midt i en by?",
+    "friend": "Anna",
+    "huskesaetning": "Når mange står sammen, kan en mur falde.",
+    "pipForkert": "Når mange står sammen, kan en ost falde!",
+    "skat": {
+      "ting": "et lille, hvidt lys",
+      "til": "Til at lyse op med"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvorfor måtte Anna ikke besøge sin mormor?",
+        "svar": "Fordi der stod en mur midt i byen, og de få, der bestemte i Østtyskland, ikke lod folk rejse over på den anden side."
+      },
+      {
+        "spoergsmaal": "Hvordan gik porten i muren op?",
+        "svar": "Rigtig mange mennesker stod sammen og gik på gaden, uden at slå, og til sidst åbnede vagterne porten."
+      }
+    ],
+    "leg": "Byg en mur af puder eller klodser midt i stuen, og leg, at I bor på hver sin side. Hvordan er det ikke at kunne komme over? Riv så muren ned sammen, og giv hinanden et kram. Prøv også: Én hvisker \"Luk porten op!\", og så siger hele familien det sammen. Hvad kan man bedst høre? Gå så i et stille optog gennem stuen med hver sin lommelygte, ligesom Anna og hendes mor gik med lys.",
+    "kernebegreb": "Men så gik rigtig mange mennesker på gaden sammen, uden at slå på nogen. Og til sidst gik porten op."
+  },
+  {
+    "nr": 12,
+    "title": "Hvilke regler gælder for alle mennesker?",
+    "friend": "Lucie",
+    "huskesaetning": "Alle mennesker er lige meget værd.",
+    "pipForkert": "Alle oste er lige meget værd!",
+    "skat": {
+      "ting": "et lille, lyseblåt flag af papir",
+      "til": "Til at vinke med"
+    },
+    "morgenspoergsmaal": [
+      {
+        "spoergsmaal": "Hvad stemte folkene om i den store bygning i Paris?",
+        "svar": "Om regler for, hvad alle mennesker i hele verden har ret til. De hedder menneskerettigheder."
+      },
+      {
+        "spoergsmaal": "Hvad siger den allerførste regel?",
+        "svar": "At alle mennesker er født frie og lige. Alle mennesker er lige meget værd."
+      }
+    ],
+    "leg": "Lav jeres egne regler for hjemmet sammen, og prøv hver regel af: Passer den til alle i familien, både store og små? Skriv eller tegn de regler, der passer til alle, på et stort stykke papir, og hæng det op.",
+    "kernebegreb": "Alle mennesker er født frie og lige i værdighed og rettigheder."
+  }
+]

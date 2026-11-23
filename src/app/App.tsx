@@ -6,7 +6,10 @@ import { isBedtime } from '../engine/session';
 import { getSettings, requestPersistence, type Settings } from '../storage/db';
 import { ParentGate } from '../parent/ParentGate';
 import { ParentScreen } from '../parent/ParentScreen';
-import { HomeButton } from '../ui/HomeButton';
+import { LydeStation } from '../activities/LydeStation';
+import { SkatteStation } from '../activities/SkatteStation';
+import { TalStation } from '../activities/TalStation';
+import { stopVoice, unlockSpeech } from '../audio/voice';
 import { DeckScreen, type Station } from './DeckScreen';
 import { Fog } from './Fog';
 
@@ -14,8 +17,6 @@ type Screen = 'start' | 'home' | Station | 'gate' | 'parent';
 
 const FOG_MS = 700;
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-const STATION_ART = { lyde: 'pip-skriver', tal: 'ostebid', bog: 'skattekiste-aaben' } as const;
 
 export function App() {
   const [screen, setScreen] = useState<Screen>('start');
@@ -42,6 +43,7 @@ export function App() {
   /** Skift sted gennem tidstågen: tågen glider ind, skærmen skifter, tågen glider væk. */
   const sailTo = (next: Screen) => {
     audio.stopAll();
+    stopVoice();
     if (prefersReducedMotion()) return setScreen(next);
     setFog(true);
     clearTimeout(fogTimer.current);
@@ -83,6 +85,7 @@ export function App() {
               aria-label="Tryk på solen for at starte"
               onClick={async () => {
                 await audio.unlock();
+                unlockSpeech();
                 void audio.play('test-melodi');
                 sailTo('home');
               }}
@@ -95,15 +98,11 @@ export function App() {
       case 'home':
         return <DeckScreen onGo={sailTo} onParent={() => setScreen('gate')} />;
       case 'lyde':
+        return <LydeStation onHome={goHome} />;
       case 'tal':
+        return <TalStation onHome={goHome} />;
       case 'bog':
-        return (
-          <div className="screen coming">
-            <HomeButton onHome={goHome} />
-            <Art id={STATION_ART[screen]} className="coming__art idle-bob" />
-            <p className="big-text">Kommer snart!</p>
-          </div>
-        );
+        return <SkatteStation onHome={goHome} />;
       case 'gate':
         return <ParentGate onPass={() => setScreen('parent')} onCancel={() => setScreen('home')} />;
       case 'parent':
