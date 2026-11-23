@@ -1,6 +1,6 @@
 # Byggeplan: Mynthe-appen
 
-> Et dansk, offline og reklamefrit læringsspil til en 5–7-årig, med to spor: **Lyde** og **Tal**.
+> Et dansk, offline og reklamefrit læringsspil til Mynthe (5½ år), med to spor: **Lyde** og **Tal**.
 > Bygger på rapporten [`docs/research-rapport.md`](research-rapport.md).
 
 ---
@@ -9,7 +9,7 @@
 
 | | |
 |---|---|
-| **Hvem** | Mynthe (5–7 år, 0.–1. klasse) og en voksen ved siden af |
+| **Hvem** | Mynthe (5½ år, før 0. klasse) og en voksen ved siden af. Appen følger hende op gennem 0.–1. klasse |
 | **Hvad** | Korte daglige sessioner (ca. 10 min) med én tydelig afslutning |
 | **Spor** | **Lyde** (forlyd, bogstavlyde, lydering) og **Tal** (subitizing, tælle, mængder, tals venner) |
 | **Platform** | PWA på familiens telefon, lagt på hjemmeskærmen og låst med Guided Access |

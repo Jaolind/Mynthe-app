@@ -4,6 +4,17 @@
 > **Kilden til sandhed for universet er Drive-mappen "Mynthes godnathistoriebog"**: "00 LÆS FØRST", "01 Bogens fundament" og "03 Verdensbibel".
 > Appen følger dem og opfinder ikke selv kanon. Står der noget andet her end i Verdensbiblen, gælder Verdensbiblen.
 
+### To apps, ét univers
+
+| | **Mynthe-appen** (dette repo) | **Fjollekameraet** |
+|---|---|---|
+| Hvad | **Læringsspil**: bogstavlyde, tal og bogens huskesætninger | **Kamera-app**, hvor man også kan besøge Knurhårs univers |
+| Formål | At Mynthe lærer noget målbart | Leg og kreativitet |
+| Fælles | Kun universet: figurer, skib, skatte og huskesætninger fra Drive-mappen | Samme |
+| Ikke fælles | Kode, data, fremskridt og "læst"-markeringer. Hver app har sin egen | Samme |
+
+Ændres kanon i Verdensbiblen, opdateres begge apps hver for sig.
+
 ---
 
 ## 1. Idéen i én sætning
@@ -80,9 +91,14 @@ Skibet Hvorfor (hjem)
 - Bogens billedregel om "ingen tekst" gælder billederne. Bogstaver og tal i appen ligger ovenpå som UI.
 - Billedformatet er 1:1 til bogen. Appen har brug for **stående format (9:16)** til baggrunde.
 
-## 7. Åbne spørgsmål
+## 7. Alder og progression
 
-1. **Fjollekameraet:** "00 LÆS FØRST" nævner, at Fjollekameraet allerede har et Knurhår-univers, der låser historier op. Skal den nye app være *den* Knurhår-app (og Fjollekameraet blive en kamera-app), eller skal de dele univers og fremskridt?
-2. **Alder:** Mynthe er 5. Det rykker fokus mod forlyd, rim og de første lyde (L1–L2) og tal til 10, før der bygges ord.
-3. **Stemmer:** Janus som både Knurhår og Pip, eller TTS med to forskellige stemmer?
-4. **Navnet på appen:** fx "Skibet Hvorfor" eller "Om bord på Hvorfor"?
+Mynthe er **5½ år** (november 2026) og starter efter planen i 0. klasse i august 2027 (det år, hun fylder 6). Appen starter derfor med:
+- **Lyde:** forlyd og rim (L1), derefter de første stabile lyde (L2). Hele ord på lertavlen kommer senere.
+- **Tal:** subitizing 1–5 og tælle til 10 (T1–T2), før tals venner.
+- **Bogen:** "Ret Pip" med billedsvar, så det ikke kræver læsning.
+
+## 8. Åbne spørgsmål
+
+1. **Stemmer:** Janus som både Knurhår og Pip, eller TTS med to forskellige stemmer?
+2. **Navnet på appen:** fx "Skibet Hvorfor" eller "Om bord på Hvorfor"?

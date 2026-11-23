@@ -48,7 +48,8 @@ Levende dokument. Appen bygges i **Kaptajn Knurhårs univers**, se [`KNURHAAR-KO
 | Instruktionsstemme | **Åbent:** din stemme hele vejen (mere personligt, ingen Azure) eller TTS (hurtigere at udvide)? |
 | Billeder | Bogens akvarelstil og referenceark. Emoji kun som pladsholder |
 | Univers | Kaptajn Knurhår. Drive-mappen er kilden til sandhed |
-| Fjollekameraet | **Åbent:** Samme univers. Skal de to apps smelte sammen eller dele fremskridt? |
+| Fjollekameraet | Separat kamera-app. Deler kun universet (Drive-kanon), ikke kode, data eller fremskridt |
+| Alder | Mynthe er 5½. Start med forlyd, rim, første lyde og tal til 10 |
 | Måling | Papirtest hver 4. uge fra v0.2: sig lyden for 10 bogstaver |
 
 ## Bevidst IKKE på roadmappen
