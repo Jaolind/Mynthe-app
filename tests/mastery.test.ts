@@ -12,9 +12,19 @@ describe('applyAnswer', () => {
     expect(p.dueAt).toBe(NOW + INTERVALS[1]);
   });
 
-  it('går aldrig over boks 4', () => {
+  it('kan ikke mestres på én dag: højst boks 2 samme dag', () => {
     let p = newProgress('letter:m', NOW);
     for (let i = 0; i < 10; i++) p = applyAnswer(p, true, NOW);
+    expect(p.box).toBe(2);
+  });
+
+  it('når boks 4 ved gentagelse over flere dage og går aldrig over', () => {
+    let p = newProgress('letter:m', NOW);
+    let t = NOW;
+    for (let i = 0; i < 10; i++) {
+      p = applyAnswer(p, true, t);
+      t = Math.max(t, p.dueAt) + 1;
+    }
     expect(p.box).toBe(4);
   });
 

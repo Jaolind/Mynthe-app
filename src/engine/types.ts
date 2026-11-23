@@ -1,4 +1,10 @@
-export type ItemId = `letter:${string}` | `word:${string}` | `num:${string}`;
+/**
+ * letter: bogstav-lyd ("Hvilket tegn skal Pip ridse?")
+ * onset:  forlyd ("Hvad starter med /s/?")
+ * num:    tal-opgaver, fx "num:count:4" eller "num:fill:7"
+ * story:  bogens huskesætninger, fx "story:3"
+ */
+export type ItemId = `letter:${string}` | `onset:${string}` | `word:${string}` | `num:${string}` | `story:${string}`;
 
 /** Leitner-boks: 0 = ny, 1 = i gang, 4 = mestret. */
 export type Box = 0 | 1 | 2 | 3 | 4;

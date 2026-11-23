@@ -17,11 +17,14 @@ export function newProgress(id: ItemId, now: number): ItemProgress {
 
 /**
  * Opdaterer et items fremskridt efter et svar.
- * Rigtigt → én boks op. Forkert → én boks ned, men aldrig under 1,
- * når itemet først er introduceret.
+ * Rigtigt → én boks op, men KUN hvis itemet var "due" (ellers ville man kunne
+ * "mestre" noget på én aften). Forkert → én boks ned, men aldrig under 1.
+ * Ny (boks 0) → boks 1 → boks 2 kan ske samme dag; højere kræver gentagelse over flere dage.
  */
 export function applyAnswer(p: ItemProgress, correct: boolean, now: number): ItemProgress {
-  const box = (correct ? Math.min(4, p.box + 1) : Math.max(1, p.box - 1)) as Box;
+  const wasDue = p.box <= 1 || p.dueAt <= now;
+  const up = correct && wasDue;
+  const box = (correct ? (up ? Math.min(4, p.box + 1) : p.box) : Math.max(1, p.box - 1)) as Box;
   return {
     ...p,
     attempts: p.attempts + 1,
@@ -29,7 +32,7 @@ export function applyAnswer(p: ItemProgress, correct: boolean, now: number): Ite
     runInItem: correct ? p.runInItem + 1 : 0,
     box,
     lastSeen: now,
-    dueAt: now + INTERVALS[box],
+    dueAt: up || !correct ? now + INTERVALS[box] : p.dueAt,
   };
 }
 

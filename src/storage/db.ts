@@ -26,9 +26,15 @@ export interface SessionLog {
 
 /** Forælderens optagelser bliver på enheden og sendes aldrig nogen steder hen. */
 export interface Recording {
-  letter: string;
+  id: string; // fx "knurhaar-hej" eller "lyd-m" (se src/content/voices.ts)
   blob: Blob;
   recordedAt: number;
+}
+
+/** En historie fra bogen, som den voksne har læst for Mynthe. */
+export interface StoryRead {
+  nr: number;
+  readAt: number;
 }
 
 interface MyntheDB extends DBSchema {
@@ -36,18 +42,26 @@ interface MyntheDB extends DBSchema {
   sessions: { key: string; value: SessionLog; indexes: { byStart: number } };
   settings: { key: 'settings'; value: Settings };
   recordings: { key: string; value: Recording };
+  storiesRead: { key: number; value: StoryRead };
 }
 
 let dbPromise: Promise<IDBPDatabase<MyntheDB>> | null = null;
 
 export function db() {
-  dbPromise ??= openDB<MyntheDB>('mynthe', 1, {
-    upgrade(d) {
-      d.createObjectStore('progress', { keyPath: 'id' });
-      const s = d.createObjectStore('sessions', { keyPath: 'id' });
-      s.createIndex('byStart', 'startedAt');
-      d.createObjectStore('settings');
-      d.createObjectStore('recordings', { keyPath: 'letter' });
+  dbPromise ??= openDB<MyntheDB>('mynthe', 2, {
+    upgrade(d, oldVersion) {
+      if (oldVersion < 1) {
+        d.createObjectStore('progress', { keyPath: 'id' });
+        const s = d.createObjectStore('sessions', { keyPath: 'id' });
+        s.createIndex('byStart', 'startedAt');
+        d.createObjectStore('settings');
+      }
+      if (oldVersion < 2) {
+        // v1 havde en tom optagelses-store med nøglen "letter". Den erstattes.
+        if (d.objectStoreNames.contains('recordings')) d.deleteObjectStore('recordings');
+        d.createObjectStore('recordings', { keyPath: 'id' });
+        d.createObjectStore('storiesRead', { keyPath: 'nr' });
+      }
     },
   });
   return dbPromise;
@@ -85,4 +99,30 @@ export async function requestPersistence(): Promise<boolean | null> {
 export async function isPersisted(): Promise<boolean | null> {
   if (!navigator.storage?.persisted) return null;
   return navigator.storage.persisted();
+}
+
+export async function getRecording(id: string) {
+  return (await db()).get('recordings', id);
+}
+
+export async function getAllRecordingIds(): Promise<Set<string>> {
+  return new Set(await (await db()).getAllKeys('recordings'));
+}
+
+export async function saveRecording(r: Recording) {
+  await (await db()).put('recordings', r);
+}
+
+export async function deleteRecording(id: string) {
+  await (await db()).delete('recordings', id);
+}
+
+export async function getStoriesRead(): Promise<Set<number>> {
+  return new Set(await (await db()).getAllKeys('storiesRead'));
+}
+
+export async function setStoryRead(nr: number, read: boolean) {
+  const d = await db();
+  if (read) await d.put('storiesRead', { nr, readAt: Date.now() });
+  else await d.delete('storiesRead', nr);
 }

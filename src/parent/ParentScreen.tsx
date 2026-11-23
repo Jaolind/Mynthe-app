@@ -4,6 +4,8 @@ import { TEST_SOUNDS } from '../audio/sounds';
 import { getSettings, isPersisted, requestPersistence, saveSettings, type Settings } from '../storage/db';
 import { downloadJson, exportBackup, importBackup, isBackup } from '../storage/backup';
 import { HomeButton } from '../ui/HomeButton';
+import { Recorder } from './Recorder';
+import { StoriesRead } from './StoriesRead';
 
 /**
  * Forældreområdet. I fase 0 er det primært en "lydtest" til at afgøre,
@@ -43,7 +45,17 @@ export function ParentScreen({ onHome }: { onHome: () => void }) {
       <h1>Forældreområde</h1>
 
       <section className="card">
-        <h2>Lydtest (fase 0)</h2>
+        <h2>Historier læst for Mynthe</h2>
+        <StoriesRead />
+      </section>
+
+      <section className="card">
+        <h2>Stemmer</h2>
+        <Recorder />
+      </section>
+
+      <section className="card">
+        <h2>Lydtest</h2>
         <p className="muted">
           Test fra hjemmeskærmsikonet, i flytilstand og med lydløs-knappen både til og fra.
         </p>

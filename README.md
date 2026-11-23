@@ -8,7 +8,9 @@ Der er ingen reklamer, intet login og ingen streaks, og der sendes ingen data no
 - 🧭 Roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - 🗺️ Teknisk plan: [`docs/BYGGEPLAN.md`](docs/BYGGEPLAN.md)
 
-## Status: fase 0 (fundament)
+## Status
+
+Se [`docs/ROADMAP.md`](docs/ROADMAP.md). Fase 0 (fundamentet) er færdig:
 
 | Del | Status |
 |---|---|

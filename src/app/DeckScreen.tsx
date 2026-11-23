@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Art, Backdrop } from '../art/Art';
 import type { ArtId } from '../art/assets';
 import { audio } from '../audio/AudioEngine';
+import { say, stopVoice } from '../audio/voice';
 
 export type Station = 'lyde' | 'tal' | 'bog';
 
@@ -44,8 +45,9 @@ export function DeckScreen({ onGo, onParent }: { onGo: (s: Station) => void; onP
         className="deck__item deck__cat"
         aria-label="Kaptajn Knurhår"
         onClick={() => {
-          pose(setCat, 'knurhaar-hilser' as ArtId, 'knurhaar-nysgerrig' as ArtId);
-          void audio.play('test-1');
+          pose(setCat, 'knurhaar-hilser' as ArtId, 'knurhaar-nysgerrig' as ArtId, 2600);
+          stopVoice();
+          void say('knurhaar-hej');
         }}
       >
         <Art id={cat} className="idle-bob" />
@@ -56,8 +58,9 @@ export function DeckScreen({ onGo, onParent }: { onGo: (s: Station) => void; onP
         className={`deck__item deck__pip ${pip === 'pip-jubler' ? 'pip--up' : ''}`}
         aria-label="Pip"
         onClick={() => {
-          pose(setPip, 'pip-jubler', 'pip-kigger', 1200);
-          void audio.play('test-3');
+          pose(setPip, 'pip-jubler', 'pip-kigger', 1800);
+          stopVoice();
+          void say('pip-hej');
         }}
       >
         <Art id={pip} />

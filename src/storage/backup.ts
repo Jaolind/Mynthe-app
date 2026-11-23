@@ -1,4 +1,4 @@
-import { db, DEFAULT_SETTINGS, type SessionLog, type Settings } from './db';
+import { db, DEFAULT_SETTINGS, type SessionLog, type Settings, type StoryRead } from './db';
 import type { ItemProgress } from '../engine/types';
 
 export interface Backup {
@@ -8,6 +8,7 @@ export interface Backup {
   settings: Settings;
   progress: ItemProgress[];
   sessions: SessionLog[];
+  storiesRead?: StoryRead[];
 }
 
 /** Eksport af fremskridt og indstillinger som JSON (optagelser er ikke med). */
@@ -20,6 +21,7 @@ export async function exportBackup(): Promise<Backup> {
     settings: { ...DEFAULT_SETTINGS, ...(await d.get('settings', 'settings')) },
     progress: await d.getAll('progress'),
     sessions: await d.getAll('sessions'),
+    storiesRead: await d.getAll('storiesRead'),
   };
 }
 
@@ -30,11 +32,13 @@ export function isBackup(x: unknown): x is Backup {
 
 export async function importBackup(b: Backup) {
   const d = await db();
-  const tx = d.transaction(['progress', 'sessions', 'settings'], 'readwrite');
+  const tx = d.transaction(['progress', 'sessions', 'settings', 'storiesRead'], 'readwrite');
   await tx.objectStore('progress').clear();
   await tx.objectStore('sessions').clear();
   for (const p of b.progress) await tx.objectStore('progress').put(p);
   for (const s of b.sessions) await tx.objectStore('sessions').put(s);
+  await tx.objectStore('storiesRead').clear();
+  for (const r of b.storiesRead ?? []) await tx.objectStore('storiesRead').put(r);
   await tx.objectStore('settings').put({ ...DEFAULT_SETTINGS, ...b.settings }, 'settings');
   await tx.done;
 }
