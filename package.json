@@ -11,7 +11,8 @@
     "typecheck": "tsc -b",
     "tts": "node --experimental-strip-types scripts/generate-tts.ts",
     "icons": "node scripts/generate-icons.mjs",
-    "test-tones": "node scripts/generate-test-tones.mjs"
+    "test-tones": "node scripts/generate-test-tones.mjs",
+    "art": "node scripts/import-art.mjs"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
     "fake-indexeddb": "^6.2.8",
+    "sharp": "^0.35.5",
     "typescript": "~5.9",
     "vite": "^8.3.8",
     "vite-plugin-pwa": "^2.0.0",

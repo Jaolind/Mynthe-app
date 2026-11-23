@@ -31,10 +31,10 @@ Levende dokument. Appen bygges i **Kaptajn Knurhårs univers**, se [`KNURHAAR-KO
 
 | # | Opgave | Detaljer |
 |---|---|---|
-| 1 | **Grafik** | Janus laver med samme værktøj som bogen: dækket i stående format, Knurhår og Pip i 4-5 positurer på gennemsigtig baggrund. Claude skriver prompterne |
-| 2 | **Hjemskærm = dækket** | Tre steder at trykke på: lertavlen (Lyde), ostekassen (Tal) og skattekisten (Bogen). Hængekøjen er sengetidslåsen |
+| 1 | **Grafik** | ✍️ Prompts klar i [`BILLEDPROMPTS.md`](BILLEDPROMPTS.md). Janus laver billederne i ChatGPT og gemmer dem i Drive `Billeder/App` |
+| 2 | ✅ **Hjemskærm = dækket** (med pladsholdere) | Tre steder at trykke på: lertavlen (Lyde), ostekassen (Tal) og skattekisten (Bogen). Hængekøjen er sengetidslåsen |
 | 3 | **Optager** i forældreområdet | Optag replikker til Knurhår og Pip og bogstavlyde. Gemmes på telefonen |
-| 4 | **Figurer med stemme** | Tryk på Knurhår → hun hilser. Tryk på Pip → han kigger frem under hatten |
+| 4 | 🟡 **Figurer med stemme** (animation klar, stemmer mangler) | Tryk på Knurhår → hun hilser. Tryk på Pip → han kigger frem under hatten |
 | 5 | **Kanon som data** | `src/content/canon.ts`: figurer, skatte og huskesætninger fra Verdensbiblen. Historier markeres som læst i forældreområdet |
 | 6 | **Tests + udgivelse** | Smoke-test på iPhone-profil, deploy |
 
