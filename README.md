@@ -1,9 +1,10 @@
 # Mynthe-appen 🌞
 
-Et roligt, dansk og offline læringsspil til Mynthe (5–7 år), med to spor: **Lyde** og **Tal**.
+Et roligt, dansk og offline læringsspil til Mynthe (5½ år), med to spor: **Lyde** og **Tal**.
 Der er ingen reklamer, intet login og ingen streaks, og der sendes ingen data nogen steder hen.
 
 - 📄 Research: [`docs/research-rapport.md`](docs/research-rapport.md) (noter i [`research/`](research/))
+- 🐱 Univers: [`docs/KNURHAAR-KONCEPT.md`](docs/KNURHAAR-KONCEPT.md)
 - 🧭 Roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - 🗺️ Teknisk plan: [`docs/BYGGEPLAN.md`](docs/BYGGEPLAN.md)
 

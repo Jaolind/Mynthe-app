@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Art, Backdrop } from '../art/Art';
 import { audio } from '../audio/AudioEngine';
 import { TEST_SOUNDS } from '../audio/sounds';
 import { isBedtime } from '../engine/session';
 import { getSettings, requestPersistence, type Settings } from '../storage/db';
 import { ParentGate } from '../parent/ParentGate';
 import { ParentScreen } from '../parent/ParentScreen';
-import { BigButton } from '../ui/BigButton';
 import { HomeButton } from '../ui/HomeButton';
+import { DeckScreen, type Station } from './DeckScreen';
+import { Fog } from './Fog';
 
-type Screen = 'start' | 'home' | 'lyde' | 'tal' | 'gate' | 'parent';
+type Screen = 'start' | 'home' | Station | 'gate' | 'parent';
+
+const FOG_MS = 700;
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const STATION_ART = { lyde: 'pip-skriver', tal: 'ostebid', bog: 'skattekiste-aaben' } as const;
 
 export function App() {
   const [screen, setScreen] = useState<Screen>('start');
   const [settings, setSettings] = useState<Settings | null>(null);
   const [now, setNow] = useState(() => new Date());
+  const [fog, setFog] = useState(false);
+  const fogTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     void getSettings().then((s) => {
@@ -26,81 +35,79 @@ export function App() {
     return () => clearInterval(t);
   }, []);
 
-  // Genindlæs indstillinger, når man forlader forældreområdet.
   useEffect(() => {
     if (screen === 'home') void getSettings().then(setSettings);
   }, [screen]);
 
-  const sleeping = settings && screen !== 'gate' && screen !== 'parent' && isBedtime(now, settings.bedtimeLockFrom);
-  const goHome = () => {
+  /** Skift sted gennem tidstågen: tågen glider ind, skærmen skifter, tågen glider væk. */
+  const sailTo = (next: Screen) => {
     audio.stopAll();
-    setScreen('home');
+    if (prefersReducedMotion()) return setScreen(next);
+    setFog(true);
+    clearTimeout(fogTimer.current);
+    fogTimer.current = window.setTimeout(() => {
+      setScreen(next);
+      fogTimer.current = window.setTimeout(() => setFog(false), 60);
+    }, FOG_MS);
   };
+  const goHome = () => sailTo('home');
 
-  if (sleeping) {
-    return (
-      <div className="screen sleep">
-        <div className="moon" aria-hidden>🌙</div>
-        <p className="big-text">Nu sover spillet. Vi ses i morgen!</p>
-        <button type="button" className="parent-corner" aria-label="For voksne" onClick={() => setScreen('gate')}>
-          ⚙︎
-        </button>
-      </div>
-    );
-  }
+  const sleeping = settings && screen !== 'gate' && screen !== 'parent' && isBedtime(now, settings.bedtimeLockFrom);
 
-  switch (screen) {
-    case 'start':
-      return (
-        <div className="screen start">
-          <button
-            type="button"
-            className="sun"
-            aria-label="Tryk på solen for at starte"
-            onClick={async () => {
-              await audio.unlock();
-              void audio.play('test-melodi');
-              setScreen('home');
-            }}
-          >
-            ☀️
-          </button>
-          <p className="big-text">Tryk på solen</p>
-        </div>
-      );
-    case 'home':
-      return (
-        <div className="screen home">
-          <div className="tracks">
-            <BigButton tone="sun" size="xl" aria-label="Lyde" onClick={() => setScreen('lyde')}>
-              <span className="track-icon">🔤</span>
-            </BigButton>
-            <BigButton tone="sea" size="xl" aria-label="Tal" onClick={() => setScreen('tal')}>
-              <span className="track-icon">🔢</span>
-            </BigButton>
-          </div>
+  return (
+    <>
+      {sleeping ? (
+        <div className="stage sleep">
+          <Backdrop id="bg-daek-nat" />
+          <Art id="knurhaar-sover" className="sleep__cat" />
+          <p className="big-text sleep__text">Kaptajnen sover. Vi ses i morgen!</p>
           <button type="button" className="parent-corner" aria-label="For voksne" onClick={() => setScreen('gate')}>
             ⚙︎
           </button>
         </div>
-      );
-    case 'lyde':
-    case 'tal':
-      return (
-        <div className="screen coming">
-          <HomeButton onHome={goHome} />
-          <div className="track-icon huge">{screen === 'lyde' ? '🔤' : '🔢'}</div>
-          <p className="big-text">Kommer snart!</p>
-          <div className="row">
-            <BigButton tone="leaf" size="md" aria-label="Spil en lyd" onClick={() => void audio.play('test-2')}>
-              🎵
-            </BigButton>
+      ) : (
+        renderScreen()
+      )}
+      <Fog active={fog} />
+    </>
+  );
+
+  function renderScreen() {
+    switch (screen) {
+      case 'start':
+        return (
+          <div className="screen start">
+            <button
+              type="button"
+              className="sun"
+              aria-label="Tryk på solen for at starte"
+              onClick={async () => {
+                await audio.unlock();
+                void audio.play('test-melodi');
+                sailTo('home');
+              }}
+            >
+              ☀️
+            </button>
+            <p className="big-text">Tryk på solen</p>
           </div>
-        </div>
-      );
-    case 'gate':
-      return <ParentGate onPass={() => setScreen('parent')} onCancel={goHome} />;
-    case 'parent':
-      return <ParentScreen onHome={goHome} />;
+        );
+      case 'home':
+        return <DeckScreen onGo={sailTo} onParent={() => setScreen('gate')} />;
+      case 'lyde':
+      case 'tal':
+      case 'bog':
+        return (
+          <div className="screen coming">
+            <HomeButton onHome={goHome} />
+            <Art id={STATION_ART[screen]} className="coming__art idle-bob" />
+            <p className="big-text">Kommer snart!</p>
+          </div>
+        );
+      case 'gate':
+        return <ParentGate onPass={() => setScreen('parent')} onCancel={() => setScreen('home')} />;
+      case 'parent':
+        return <ParentScreen onHome={() => setScreen('home')} />;
+    }
   }
 }
